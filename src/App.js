@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+function Friends({name, image}) {
+  return (
+    <div>
+      <img src = {image} alt = {name}/>
+      <h2>I like {name}</h2>
+    </div>
+  )
+}
+
+const char = [
+  {
+    name : "라이언",
+    image : "https://t1.kakaocdn.net/friends/prod/character/character_20220531165241_96.png"
+  },
+  {
+    name : "춘식이",
+    image : "https://t1.kakaocdn.net/friends/prod/character/character_20220531165550_96.png"
+  },
+  {
+    name : "죠르디",
+    image : "https://t1.kakaocdn.net/friends/prod/character/character_20220531165611_96.png"
+  },
+  {
+    name : "스카피",
+    image : "https://t1.kakaocdn.net/friends/prod/character/character_20220531165636_96.png"
+  }
+];
+
+/* function renderFriends(character) {
+  return <Friends name = {character.name} image = {character.image} />
+} */
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style = {{display:"flex"}}>
+        {char.map((character, index) =>
+          <Friends key = {index} name = {character.name} image = {character.image} />
+        )}
     </div>
   );
 }
